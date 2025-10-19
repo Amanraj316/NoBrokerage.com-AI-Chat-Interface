@@ -10,10 +10,20 @@ const { generateSummary } = require('./summaryService');
 
 const app = express();
 const PORT = 3001; // Backend server port
-const frontendURL = 'https://no-brokerage-com-ai-chat-interface-ae267va7f.vercel.app';
+const allowedOrigins = [
+  'https://no-brokerage-com-ai-chat-interface.vercel.app',
+  'https://no-brokerage-com-ai-chat-interface-ae267va7f.vercel.app'
+];
 
 const corsOptions = {
-  origin: frontendURL,
+  origin: function (origin, callback) {
+    // Check if the incoming request's origin is in our whitelist.
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 };
 
 // --- Middleware ---
