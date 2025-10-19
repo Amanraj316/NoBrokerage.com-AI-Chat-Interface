@@ -30,7 +30,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/chat', {
+      const response = await fetch('https://nobrokerage-com-ai-chat-interface.onrender.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

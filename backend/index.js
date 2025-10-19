@@ -10,11 +10,15 @@ const { generateSummary } = require('./summaryService');
 
 const app = express();
 const PORT = 3001; // Backend server port
+const frontendURL = 'https://no-brokerage-com-ai-chat-interface.vercel.app/';
+
+const corsOptions = {
+  origin: frontendURL,
+};
 
 // --- Middleware ---
 // Allow requests from your frontend (which will run on a different port)
-app.use(cors());
-// Allow the server to understand incoming JSON data
+app.use(cors(corsOptions));// Allow the server to understand incoming JSON data
 app.use(express.json());
 
 
