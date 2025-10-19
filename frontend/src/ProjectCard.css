@@ -1,0 +1,41 @@
+/* frontend/src/ProjectCard.css */
+.project-card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  max-width: 85%;
+  align-self: flex-start; /* Align with bot messages */
+}
+
+.project-title {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  color: #0056b3;
+}
+
+.project-location {
+  margin: 0 0 12px 0;
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+.project-details {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.detail-tag {
+  background-color: #e9ecef;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.detail-tag.price {
+  background-color: #28a745;
+  color: white;
+}
