@@ -29,7 +29,5 @@ Provide clear, step-by-step instructions.
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 4. Open your browser to the URL provided (usually `http://localhost:5173`).
-   Example Queries
-   Give a few examples so they can test it easily.
-
+   Example Query:-
     3BHK in Pune under 2.3 Cr properties in mumbai
