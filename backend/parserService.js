@@ -1,13 +1,9 @@
 // backend/parserService.js
 
-// This function now takes the list of all projects to check against
 function parseQuery(query, allProjects) {
   const lowerCaseQuery = query.toLowerCase();
 
-  // --- NEW: Project Name Extraction ---
-  // We prioritize this. If the query matches a project name, we assume that's the main filter.
   const projectName = extractProjectName(lowerCaseQuery, allProjects);
-
   const bhk = extractBHK(lowerCaseQuery);
   const city = extractCity(lowerCaseQuery);
   const budget = extractBudget(lowerCaseQuery);
@@ -16,15 +12,15 @@ function parseQuery(query, allProjects) {
 }
 
 function extractProjectName(query, allProjects) {
-  // Find the first project whose name is included in the user's query.
+  // Gracefully handle if allProjects isn't available
+  if (!allProjects) return null;
+  
   const foundProject = allProjects.find(p =>
-    query.includes((p.projectName || '').toLowerCase())
+    p && p.projectName && query.includes(p.projectName.toLowerCase())
   );
-  // Return the actual project name if found, otherwise null.
   return foundProject ? foundProject.projectName : null;
 }
 
-// --- No changes to the functions below ---
 function extractBHK(query) {
   const bhkMatch = query.match(/(\d+\.?\d*)\s*bhk/);
   return bhkMatch ? parseFloat(bhkMatch[1]) : null;
