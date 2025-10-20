@@ -1,9 +1,7 @@
 # NoBrokerage.com AI Chat Interface
 
 ## Description
-A brief one-sentence summary of what the project does.
-
-e.g., An intelligent chat interface that allows users to find real estate properties using natural language queries.
+An intelligent chat interface that allows users to find real estate properties using natural language queries.
 
 ## Tech Stack
 List the key technologies you used.
