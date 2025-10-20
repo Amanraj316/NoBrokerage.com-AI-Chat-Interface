@@ -9,9 +9,22 @@ function extractBhkFromString(bhkString) {
 
 function searchProjects(allProjects, filters) {
   // 1. First, filter by city to reduce the number of projects to check
-  const cityFilteredProjects = filters.city
-    ? allProjects.filter(p => p.address.fullAddress && p.address.fullAddress.toLowerCase().includes(filters.city))
-    : allProjects;
+  let results = [...allProjects];
+
+  // --- NEW: Filter by Project Name FIRST ---
+  // If a specific project name was found, this is the most important filter.
+  if (filters.projectName) {
+    results = results.filter(p => 
+      (p.projectName || '').toLowerCase() === filters.projectName.toLowerCase()
+    );
+  }
+
+  // --- Then, filter the remaining results by city ---
+  if (filters.city) {
+    results = results.filter(p => 
+      p.address.fullAddress && p.address.fullAddress.toLowerCase().includes(filters.city)
+    );
+  }
 
   const finalResults = [];
 

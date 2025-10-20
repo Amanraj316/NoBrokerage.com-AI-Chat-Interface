@@ -48,7 +48,7 @@ app.post('/api/chat', (req, res) => {
   console.log(`Received query: "${message}"`);
 
   // 2. Parse the natural language message to get structured filters
-  const filters = parseQuery(message);
+  const filters = parseQuery(message, allProjects);
   console.log('Extracted Filters:', filters);
   
   // 3. Get all the project data
