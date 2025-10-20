@@ -31,7 +31,9 @@ const corsOptions = {
 app.use(cors(corsOptions));// Allow the server to understand incoming JSON data
 app.use(express.json());
 
-
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 // --- API Endpoints ---
 
 // Main chat endpoint that drives the application
